@@ -14,81 +14,81 @@ dart는 구글에서 개발한 객체지향 프로그래밍 언어입니다.
 
 1. var
 
-var 키워드를 사용하여 **변수를 선언**할 수 있습니다.
+   var 키워드를 사용하여 **변수를 선언**할 수 있습니다.
 
-var 키워드는 관습적으로 함수 또는 메소드의 지역변수를 선언할 때 사용합니다.
+   var 키워드는 관습적으로 함수 또는 메소드의 지역변수를 선언할 때 사용합니다.
 
-그 외 클래스 또는 프로퍼티의 경우에는 타입을 명시해주는 것이 좋습니다.
+   그 외 클래스 또는 프로퍼티의 경우에는 타입을 명시해주는 것이 좋습니다.
 
 2. dynamic
 
-dynamic 타입은 **모든 타입을 허용**합니다.
+   dynamic 타입은 **모든 타입을 허용**합니다.
 
-```dart
-void main() {
-  var name;
-  name = 'John';
-}
-```
+   ```dart
+   void main() {
+   var name;
+   name = 'John';
+   }
+   ```
 
-```dart
-void main() {
-  dynamic name;
-  name = 'John';
-}
-```
+   ```dart
+   void main() {
+   dynamic name;
+   name = 'John';
+   }
+   ```
 
 3. null safety
 
-null safety는 TypeScript의 **strict mode**와 같은 개념입니다.
+   null safety는 TypeScript의 **strict mode**와 같은 개념입니다.
 
-변수를 선언할 때 타입 뒤에 ?를 붙여주면 null을 허용합니다.
+   변수를 선언할 때 타입 뒤에 ?를 붙여주면 null을 허용합니다.
 
-```dart
-void main() {
-  String? name;
-  name = null;
-  if(name != null) {
-    name.isNotEmpty;
-  }
-  // name?.isNotEmpty;
-}
-```
+   ```dart
+   void main() {
+   String? name;
+   name = null;
+   if(name != null) {
+       name.isNotEmpty;
+   }
+   // name?.isNotEmpty;
+   }
+   ```
 
 4. final
 
-final 키워드는 **한 번 값을 할당하면 변경할 수 없는** 상수입니다.
+   final 키워드는 **한 번 값을 할당하면 변경할 수 없는** 상수입니다.
 
-JavaScript의 const와 유사합니다.
+   JavaScript의 const와 유사합니다.
 
-```dart
-void main() {
-  final name = 'John';
-  // name = 'Doe';
-}
-```
+   ```dart
+   void main() {
+   final name = 'John';
+   // name = 'Doe';
+   }
+   ```
 
 5. late
 
-late 키워드는 변수를 **선언할 때 값을 할당하지 않고**, 나중에 할당할 수 있습니다.
+   late 키워드는 변수를 **선언할 때 값을 할당하지 않고**, 나중에 할당할 수 있습니다.
 
-```dart
-void main() {
-  late final String name;
-  name = 'John';
-}
-```
+   ```dart
+   void main() {
+   late final String name;
+   name = 'John';
+   }
+   ```
 
 6. const
 
-const 키워드는 **컴파일 시점**에 값을 할당해야 합니다. (런타임 시점에 값을 할당할 수 없습니다.)
+   const 키워드는 **컴파일 시점**에 값을 할당해야 합니다. (런타임 시점에 값을 할당할 수 없습니다.)
 
-```dart
-void main() {
-  const name = 'John';
-  // name = 'Doe';
-}
-```
+   ```dart
+   void main() {
+   const name = 'John';
+   // name = 'Doe';
+   }
+   ```
 
 ## 2. 데이터 타입
 
@@ -96,49 +96,142 @@ dart에서 모든 데이터 타입은 객체입니다. (class로 구현되어 �
 
 1. String
 
-```dart
-void main() {
-  String name = 'John';
-  String name2 = "John";
-  String name3 = '''John''';
-  String name4 = """John""";
-}
-```
+   ```dart
+   void main() {
+   String name = 'John';
+   String name2 = "John";
+   String name3 = '''John''';
+   String name4 = """John""";
+   }
+   ```
 
 2. int
 
-```dart
-void main() {
-  int age = 10;
-  int age2 = 0x10;
-  int age3 = 0b10;
-  int age4 = 0x10;
-}
-```
+   ```dart
+   void main() {
+   int age = 10;
+   int age2 = 0x10;
+   int age3 = 0b10;
+   int age4 = 0x10;
+   }
+   ```
 
 3. double
 
-```dart
-void main() {
-  double height = 10.0;
-  double height2 = 10;
-}
-```
+   ```dart
+   void main() {
+   double height = 10.0;
+   double height2 = 10;
+   }
+   ```
 
 4. num
 
-```dart
-void main() {
-  num age = 10;
-  num height = 10.0;
-}
-```
+   ```dart
+   void main() {
+   num age = 10;
+   num height = 10.0;
+   }
+   ```
 
 5. bool
 
-```dart
-void main() {
-  bool isTrue = true;
-  bool isFalse = false;
-}
-```
+   ```dart
+   void main() {
+   bool isTrue = true;
+   bool isFalse = false;
+   }
+   ```
+
+6. List
+
+   List는 **배열**을 의미합니다.
+
+   ```dart
+   void main() {
+   List<String> names = ['John', 'Doe',];
+   }
+   ```
+
+   collection if를 사용하면 조건에 따라 리스트에 값을 추가할 수 있습니다.
+
+   ```dart
+   void main() {
+   List<String> names = ['John', 'Doe',];
+   List<String> names2 = ['John', 'Doe', if(true) 'Jane'];
+   }
+   ```
+
+   collection for를 사용하면 반복문을 사용하여 리스트에 값을 추가할 수 있습니다.
+
+   ```dart
+   void main() {
+   List<String> names = ['John', 'Doe',];
+   List<String> names2 = ['bar', 'foo', for(var name in names) '$name',];
+   }
+   ```
+
+7. Map
+
+   Map은 **객체**를 의미합니다.
+
+   ```dart
+   void main() {
+   // 첫번째는 key의 타입, 두번째는 value의 타입입니다.
+   Map<String, Object> user = {
+       'name': 'John',
+       'age': '10',
+   };
+   }
+   // Object는 모든 타입을 허용합니다(any).
+   ```
+
+8. Set
+
+   Set은 **집합**을 의미합니다.
+
+   ```dart
+   void main() {
+   Set<String> names = {'John', 'Doe',};
+   }
+   ```
+
+## 3. 함수
+
+1. 함수 선언 및 호출
+
+   ```dart
+   String sayHello(String name) {
+   return 'Hello $name';
+   }
+
+   void main() {
+   print(sayHello('John'));
+   }
+   ```
+
+2. fat arrow function
+
+   fat arrow function은 **한 줄로 함수를 선언**할 수 있습니다.
+
+   ```dart
+   String sayHello(String name) => 'Hello $name';
+
+   void main() {
+   print(sayHello('John'));
+   }
+   ```
+
+3. named parameter
+
+   named parameter는 **함수의 인자를 명시적으로 지정**할 수 있습니다.
+
+   ```dart
+   String sayHello({String name = 'John', required String lastName, int? age}) {
+     return 'Hello $name $lastName $age';
+   }
+
+   void main() {
+     print(sayHello(lastName: 'Doe', age: 10));
+   }
+   ```
