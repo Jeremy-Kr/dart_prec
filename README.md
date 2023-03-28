@@ -235,3 +235,229 @@ dart에서 모든 데이터 타입은 객체입니다. (class로 구현되어 �
      print(sayHello(lastName: 'Doe', age: 10));
    }
    ```
+
+4. optional positional parameter
+
+   optional positional parameter는 **함수의 인자를 선택적으로 지정**할 수 있습니다.
+
+   ```dart
+   String sayHello(String name, [String lastName = 'Doe', int? age]) {
+     return 'Hello $name $lastName $age';
+   }
+
+   void main() {
+     print(sayHello('John'));
+   }
+   ```
+
+## 4. 특별한 연산자
+
+1. ??
+
+   ?? 연산자는 **null safety**를 위해 사용됩니다.
+
+   ```dart
+   void main() {
+     String? name;
+     String name2 = name ?? 'John';
+     print(name2);
+   }
+   ```
+
+2. ??=
+
+   ??= 연산자는 **null safety**를 위해 사용됩니다.
+
+   ```dart
+   void main() {
+     String? name;
+     name ??= 'John';
+     print(name);
+   }
+   ```
+
+## 5. 클래스
+
+1. 클래스 선언
+
+```dart
+class User {
+  final String name;
+  int age;
+
+  User(this.name, this.age);
+
+  void sayHello() {
+    print('Hello $name');
+  }
+}
+
+void main() {
+   var user = User('John', 10);
+   user.sayHello();
+}
+```
+
+2. named constructor parameter
+
+```dart
+class User {
+  final String name;
+  int age;
+
+  User({required this.name, required this.age});
+
+  void sayHello() {
+    print('Hello $name');
+  }
+}
+
+void main() {
+   var user = User(name: 'John', age: 10);
+   user.sayHello();
+}
+```
+
+3. named constructor
+
+```dart
+class User {
+  final String name;
+  int age;
+
+  User({required this.name, required this.age});
+
+  User.guest({required int age}) : this(name: 'Guest', age: age);
+
+  void sayHello() {
+    print('Hello $name');
+  }
+}
+
+void main() {
+   var user = User.guest();
+   user.sayHello();
+}
+```
+
+4. cascade notation
+
+```dart
+class User {
+  final String name;
+  int age;
+
+  User({required this.name, required this.age});
+
+  User.guest({required int age}) : this(name: 'Guest', age: age);
+
+  void sayHello() {
+    print('Hello $name');
+  }
+}
+
+void main() {
+   var user = User.guest(age: 10)
+     ..name = 'John'
+     ..sayHello();
+}
+```
+
+5. enums
+
+```dart
+enum Name {
+  John,
+  Jane,
+}
+
+void main() {
+  print(Name.John);
+}
+```
+
+6. abstract class
+
+```dart
+abstract class User {
+  String name;
+  int age;
+
+  User({required this.name, required this.age});
+
+  void sayHello();
+}
+
+class Guest extends User {
+  Guest({required int age}) : super(name: 'Guest', age: age);
+
+  @override
+  void sayHello() {
+    print('Hello $name');
+  }
+}
+
+void main() {
+  var user = Guest(age: 10);
+  user.sayHello();
+}
+```
+
+7. inheritance
+
+```dart
+class User {
+  String name;
+  int age;
+
+  User({required this.name, required this.age});
+
+  void sayHello() {
+    print('Hello $name');
+  }
+}
+
+class Guest extends User {
+  Guest({required int age}) : super(name: 'Guest', age: age);
+
+  @override
+  void sayHello() {
+    print('Hello $name');
+  }
+}
+
+void main() {
+  var user = Guest(age: 10);
+  user.sayHello();
+}
+```
+
+8. mixin
+
+```dart
+class User {
+  String name;
+  int age;
+
+  User({required this.name, required this.age});
+
+  void sayHello() {
+    print('Hello $name');
+  }
+}
+
+class Guest extends User with CanSayHello {
+  Guest({required int age}) : super(name: 'Guest', age: age);
+}
+
+mixin CanSayHello {
+  void sayHello() {
+    print('Hello');
+  }
+}
+
+void main() {
+  var user = Guest(age: 10);
+  user.sayHello();
+}
+```
